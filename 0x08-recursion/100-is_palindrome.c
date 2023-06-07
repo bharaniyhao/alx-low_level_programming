@@ -3,12 +3,12 @@
 #include <string.h>
 
 /**
- * is_palindrome - function that compares two strings and returns 1 if the strings can be considered identical, otherwise return 0
- * @n: input
- * Return: 0
+ * is_palindrome - Compares two strings and returns 1 if they can be considered
+ *                 identical, otherwise returns 0.
+ * @s: The string to check for palindrome.
+ *
+ * Return: 1 if @s is a palindrome, 0 otherwise.
  */
-
-
 int is_palindrome(char *s)
 {
     int len = strlen(s);
@@ -21,4 +21,3 @@ int is_palindrome(char *s)
         return is_palindrome(s + 1);
     }
 }
-
