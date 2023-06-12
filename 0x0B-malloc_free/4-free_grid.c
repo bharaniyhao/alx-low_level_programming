@@ -1,20 +1,21 @@
 #include "main.h"
 #include <stdlib.h>
+
 /**
- * free_grid - function that fress a 2 dimensional grid previously
- * @grid: the address of the two dimensional grid
- * @width: width of the grid
- * @height: height of the grid
- *
+ * free_grid - Frees a two-dimensional grid previously allocated.
+ * @grid: The address of the two-dimensional grid.
+ * @height: The height of the grid.
+ * 
  * Return: Nothing.
  */
-void free_grid(int **grid, int height) 
+void free_grid(int **grid, int height)
 {
-int i;
-for (i = 0; i < height; i++) 
-{
-free(grid[i]);
-}
-free(grid);
-}
+    int i;
 
+    for (i = 0; i < height; i++)
+    {
+        free(grid[i]);
+    }
+
+    free(grid);
+}
