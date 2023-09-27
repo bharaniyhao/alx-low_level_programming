@@ -4,16 +4,17 @@
 /**
  * _puts_recursion - function like puts();
  * @s: input
- * Return: Always 0(Success)
+ *
+ * Description: Prints a string followed by a new line.
+ * Return: void
  */
 void _puts_recursion(char *s)
 {
-if (*s)
-{
-putchar (*s);
-_puts_recursion (s + 1);
+    if (*s)
+    {
+        putchar(*s);
+        _puts_recursion(s + 1);
+    }
+    else
+        putchar('\n');
 }
-else
-putchar ('\n');
-}
-/* he end file */
