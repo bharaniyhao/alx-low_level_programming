@@ -1,6 +1,18 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+
+/**
+ * _putchar - Writes a character to stdout
+ * @c: The character to write
+ *
+ * Return: 1 on success, -1 on error
+ */
+int _putchar(char c)
+{
+	return write(1, &c, 1);
+}
 
 /**
  * _print - Move a string one place to the left and print the string
@@ -19,10 +31,10 @@ void _print(char *str, int l)
 		if (str[i] != '0')
 			j = 1;
 		if (j || i == l - 1)
-			putchar(str[i]);
+			_putchar(str[i]);
 		i++;
 	}
-	putchar('\n');
+	_putchar('\n');
 	free(str);
 }
 
@@ -58,9 +70,9 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 	}
 
 	if (addrem)
-		return (NULL);
+		return NULL;
 
-	return (dest);
+	return dest;
 }
 
 /**
@@ -78,11 +90,11 @@ int check_for_digits(char **av)
 		for (j = 0; av[i][j]; j++)
 		{
 			if (av[i][j] < '0' || av[i][j] > '9')
-				return (1);
+				return 1;
 		}
 	}
 
-	return (0);
+	return 0;
 }
 
 /**
@@ -114,14 +126,14 @@ int main(int argc, char *argv[])
 	int l1, l2, ln, ti, i;
 	char *a;
 	char *t;
-	char e[] = "Error\n";
+	char error_message[] = "Error\n";
 
 	if (argc != 3 || check_for_digits(argv))
 	{
-		for (ti = 0; a[ti]; ti++)
-			putchar(a[ti]);
+		for (ti = 0; error_message[ti]; ti++)
+			_putchar(error_message[ti]);
 
-		exit(98);
+		return 98;
 	}
 
 	for (l1 = 0; argv[1][l1]; l1++)
@@ -135,10 +147,10 @@ int main(int argc, char *argv[])
 
 	if (a == NULL)
 	{
-		for (ti = 0; a[ti]; ti++)
-			putchar(a[ti]);
+		for (ti = 0; error_message[ti]; ti++)
+			_putchar(error_message[ti]);
 
-		exit(98);
+		return 98;
 	}
 
 	init(a, ln - 1);
@@ -149,14 +161,14 @@ int main(int argc, char *argv[])
 
 		if (t == NULL)
 		{
-			for (ti = 0; a[ti]; ti++)
-				putchar(a[ti]);
+			for (ti = 0; error_message[ti]; ti++)
+				_putchar(error_message[ti]);
 
 			free(a);
-			exit(98);
+			return 98;
 		}
 	}
 
 	_print(a, ln - 1);
-	return (0);
+	return 0;
 }
