@@ -1,41 +1,45 @@
-#include "function_pointers.h"
-#include <stdlib.h>
 #include <stdio.h>
-#include "3-calc.h"
+#include <stdlib.h>
 
 /**
- * main - prints the result of simple operations.
- * @argc: the number of arguments supplied to the program
- * @argv: an array of pointers to the arguments.
- * Return: Always 0.
+ * main - Prints its own opcodes
+ * @argc: Number of arguments
+ * @argv: Array of arguments
+ *
+ * Return: Always 0 (Success)
  */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
-    int num1, num2;
-    char *op;
+	int bytes, i;
+	char *arr;
 
-    if (argc != 4)
-    {
-        printf("Error\n");
-        exit(98);
-    }
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
-    num1 = atoi(argv[1]);
-    op = argv[2];
-    num2 = atoi(argv[3]);
+	bytes = atoi(argv[1]);
 
-    if (get_op_func(op) == NULL || op[1] != '\0')
-    {
-        printf("Error\n");
-        exit(99);
-    }
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
 
-    if ((*op == '/' && num2 == 0) || (*op == '%' && num2 == 0))
-    {
-        printf("Error\n");
-        exit(100);
-    }
+	arr = (char *)main;
 
-    printf("%d\n", get_op_func(op)(num1, num2));
-    return (0);
+	for (i = 0; i < bytes; i++)
+	{
+		if (i == bytes - 1)
+		{
+			printf("%02hhx\n", arr[i]);
+		}
+		else
+		{
+			printf("%02hhx ", arr[i]);
+		}
+	}
+
+	return (0);
 }
