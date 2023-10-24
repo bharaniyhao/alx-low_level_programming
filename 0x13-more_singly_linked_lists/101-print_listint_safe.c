@@ -1,9 +1,7 @@
 #include "lists.h"
-
 /**
- * print_listint_safe - Prints a listint_t list.
+ * print_listint_safe - Prints a listint_t list and checks for infinite loops.
  * @head: A pointer to the head of the list.
- *
  * Return: The number of nodes in the list.
  */
 size_t print_listint_safe(const listint_t *head)
