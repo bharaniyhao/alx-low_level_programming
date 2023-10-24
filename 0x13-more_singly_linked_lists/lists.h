@@ -6,17 +6,17 @@
 #include <stdio.h>
 
 /**
- * struct listint_t - self referencial struct 
+ * struct listint_s - self-referential struct
  * for creating nodes of a singly linked list
  * @n: integer data
- * @next: self referencial pointer
- * pointer to the next node of list
+ * @next: self-referential pointer
+ * pointer to the next node of the list
  *
  */
 typedef struct listint_s
 {
-	int n;
-	struct listint_s *next;
+    int n;
+    struct listint_s *next;
 } listint_t;
 
 size_t print_listint(const listint_t *h);

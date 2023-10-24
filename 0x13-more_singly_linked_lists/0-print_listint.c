@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * listint_len - returns the number of elements in a linked listint_t list
  * @h: a pointer to the head of the list
@@ -7,14 +6,14 @@
  */
 size_t listint_len(const listint_t *h)
 {
-	size_t count = 0;
-	const listint_t *current = h;
+	size_t count;
 
-	while (current != NULL)
+	if (h == NULL)
+		return (0);
+	for (count = 0; h != NULL; count++)
 	{
-		count++;
-		current = current->next;
+	printf("%d\n", h->n);
+	h = h->next;
 	}
-
 	return (count);
 }
