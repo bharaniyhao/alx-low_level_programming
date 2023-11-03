@@ -29,7 +29,7 @@ void read_elf_header(int fd)
 	    header.e_ident[EI_MAG2] != ELFMAG2 || header.e_ident[EI_MAG3] != ELFMAG3)
 		error_exit("Error: Not an ELF file");
 
-	lseek(fd, 0, SEEK_SET); /* Reset file offset */
+	lseek(fd, 0, SEEK_SET); 
 
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
